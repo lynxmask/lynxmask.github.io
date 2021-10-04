@@ -1,0 +1,244 @@
+﻿<script>
+
+alert("Welcome to a game of Tic-Tac-Toe!\nTry score 3 in a row against an opponent,\nor yourself if you're lonely!");
+
+
+//Player one and playaer 2 variables
+for (var player1;Boolean(player1)== false;player1){
+	player1 = prompt("Player one, please enter your name!\nYou'll be playing with 'X'!");
+}
+var x = " [ X ]"
+//Making sure player 2 dont pick the same name!
+for(var player2;Boolean(player2)== false;player2){
+	player2 = prompt("Player two, please enter your name!\n You'll be playng with 'O'!");
+	if(player2 == player1){
+	//Grammar wont be perfect if the users name ends with an 's' but I work with what I have..
+		alert("That's the same name as "+ player1+
+			"!\nPlease pick another,It'll be easier this way.\nIf you're alone, may I suggest"+
+			"\n"+player1+ "s evil clone?");
+		player2 = 0
+	}
+}
+var o = "[ O ]"
+
+var empty = "[___]"
+var turn = 1
+var player = "None yet";
+var faulty = "That is NOT a valid move! It is allready taken! Pick another one";
+
+
+//Function to switch player turns It just works//todd howard
+function turnOrder(){
+	turn ++
+	if (turn % 2 == 0){
+		player = player1
+	}
+	else (player = player2);
+}
+
+//The array for the "board" 
+var board = [
+	[empty,empty,empty],
+	[empty,empty,empty],
+	[empty,empty,empty]
+]
+/*The "UI", or display for the user(s). Made it a variable so that I can utilize the message both in a prompt and an alert
+cant for the life of me to get it to work*/
+//var display = ("\n    A	   B	 C\n1  "+board[0][0]+board[0][1]+board[0][2]+" \n2  "+board[1][0]+board[1][1]+board[1][2]+"\n3  "+board[2][0]+board[2][1]+board[2][2]);
+
+
+
+alert("To pick a box you enter for example a1 or b2 on your turn.\n    A	   B	 C"+
+																"\n1 "+board[0][0]+board[0][1]+board[0][2]+
+																"\n2  "+board[1][0]+board[1][1]+board[1][2]+
+																"\n3  "+board[2][0]+board[2][1]+board[2][2]);
+//This seems to be working fine! Dont touch
+//fix to lower case 
+//Fix in you dont pick anything
+function choice(){
+	//switching turns
+	
+			//row 1
+			if (mark.toLowerCase("a1") == "a1" ){
+				if (board[0][0] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[0][0] = x
+				}
+				else (board[0][0] = o);
+			}
+			else if (mark.toLowerCase("b1") == "b1"){
+				if (board[0][1] != empty){
+					play ++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[0][1] = x
+				}
+				else(board[0][1]= o);
+			}
+			else if (mark.toLowerCase("c1") == "c1"){
+				if (board[0][2] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[0][2] = x
+				}
+				else(board[0][2] = o)
+			}
+			//Row 2
+			else if (mark.toLowerCase("a2") == "a2"){
+				if (board[1][0] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[1][0] = x
+				}
+				else(board[1][0] = o)
+			}
+			else if (mark.toLowerCase("b2") == "b2"){
+				if (board[1][1] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[1][1] = x
+				}
+				else(board[1][1] = o)
+			}
+			else if (mark.toLowerCase("c2") == "c2"){
+				if (board[1][2] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[1][2] = x
+				}
+				else(board[1][2] = o)
+			}
+			//Row 3
+			else if (mark.toLowerCase("a3") == "a3"){
+				if (board[2][0] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[2][0] = x
+				}
+				else(board[2][0] = o)
+			}
+			else if (mark.toLowerCase("b3") == "b3"){
+				if (board[2][1] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[2][1] = x
+				}
+				else(board[2][1] = o)
+			}
+			else if (mark.toLowerCase("c3") == "c3"){
+				if (board[2][2] != empty){
+					play++ + turn++ +
+					alert(faulty);
+				}
+				else if (player == player1){
+					board[2][2] = x
+				}
+				else(board[2][2] = o)
+			}
+			/*In case the user types wrong or nothing at all the turn++
+			will add one to the turnorder and therfore the message will 
+			keep prompting the same player to make their turn. the play ++ makes sure the rounds doesn't end 
+			untill the board is filled or someonw has won the game*/
+			else(alert("This is NOT how the game works!")+(turn++))+play++;
+}
+
+//A finnish loop that will check there is 3 in a row somewhere
+//Seem to be working
+function finnish(){
+	//Row 1
+	if (board[0][0]+board[0][1]+board[0][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[0][0]+board[0][1]+board[0][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//row 2
+	else if (board[1][0]+board[1][1]+board[1][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[1][0]+board[1][1]+board[1][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//row 2
+	else if (board[2][0]+board[2][1]+board[2][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[2][0]+board[2][1]+board[2][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//row A
+	else if (board[0][0]+board[1][0]+board[2][0] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[0][0]+board[1][0]+board[2][0] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//row B
+	else if (board[0][1]+board[1][1]+board[2][1] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[0][1]+board[1][1]+board[2][1] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//row C
+	else if (board[0][2]+board[1][2]+board[2][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[0][2]+board[1][2]+board[2][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//Diagonal Row upper left to bot right
+	else if (board[0][0]+board[1][1]+board[2][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[0][0]+board[1][1]+board[2][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+	//and last but not least diagonally bot left to top right
+	else if (board[2][0]+board[1][1]+board[0][2] == x+x+x){
+		alert(player1+" is the winner!")+ (play = 0);
+	}
+	else if (board[2][0]+board[1][1]+board[0][2] == o+o+o){
+		alert(player2+" is the winner!")+(play = 0);
+	}
+}
+
+/*Here is where the gameplay loop takes place. it is quite possible to just mark over the same box over and over
+and be able to 'break' the game, but I'm not sure how to fix it without spending hours upon hours
+to add if/else checkers everywhere.*/
+for (var play = 9 ;play > 0 ;finnish()){
+
+	//switching player turn
+	turnOrder();
+	
+	//player is asked to pick a square. Tried making this a prompt, but it woudn't update the message untill next turn
+	var mark = prompt("It is "+ player +"s turn to play!\n\nWhat square do you want to mark?\n    A	   B	 C\n1 "+board[0][0]+board[0][1]+board[0][2]+" \n2  "+board[1][0]+board[1][1]+board[1][2]+"\n3  "+board[2][0]+board[2][1]+board[2][2]);
+
+	//Player picks a choice
+	choice();
+	//reduces amount of rounds by one
+	play --
+}
+
+
+//Could make a custom "No one wins message" by adding a variable in the "finnish()" function, but cant be bothered at this point
+alert("The result\n    A	   B	 C\n1 "+board[0][0]+board[0][1]+board[0][2]+
+									" \n2  "+board[1][0]+board[1][1]+board[1][2]+
+									"\n3  "+board[2][0]+board[2][1]+board[2][2]);
+</script>
